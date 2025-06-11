@@ -5,6 +5,15 @@ public class EvaluationRequestDTO {
     private String question;
     private String userAnswer;
 
+    public EvaluationRequestDTO() {
+
+    }
+    public EvaluationRequestDTO(String topic, String question, String userAnswer) {
+        this.topic = topic;
+        this.question = question;
+        this.userAnswer = userAnswer;
+    }
+
     public String getTopic() {
         return topic;
     }

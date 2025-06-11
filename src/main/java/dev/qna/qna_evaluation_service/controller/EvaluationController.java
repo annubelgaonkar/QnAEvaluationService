@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/evaluate")
 public class EvaluationController {
+
     public final EvaluationService evaluationService;
 
     public EvaluationController(EvaluationService evaluationService) {

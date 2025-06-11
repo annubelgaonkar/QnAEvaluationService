@@ -1,16 +1,14 @@
 package dev.qna.qna_evaluation_service.llm;
 
 import dev.qna.qna_evaluation_service.dto.EvaluationResponseDTO;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
-
-import java.awt.*;
-import java.net.http.HttpHeaders;
-import java.util.HashMap;
 import java.util.Map;
 
+@Component
 public class LLMClient {
 
     private final WebClient webClient;
@@ -28,7 +26,9 @@ public class LLMClient {
     @Value("${openai.api.model}")
     private String model;
 
-    public EvaluationResponseDTO evaluateAnswer(String topic, String question, String userAnswer) {
+    public EvaluationResponseDTO evaluateAnswer(String topic,
+                                                String question,
+                                                String userAnswer) {
         String prompt = String.format(
                 "I am learning about %s. Here's a question: \"%s\"\nMy answer: \"%s\"\n" +
                         "Please evaluate my answer. Correct me if I'm wrong, and explain the right answer if needed.",
